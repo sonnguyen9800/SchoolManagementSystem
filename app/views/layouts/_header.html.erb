@@ -6,23 +6,26 @@
         <li><%= link_to "Home",   root_path , class: "btn btn-lg btn-light"  %></li>
 
         <li class="dropdown">
-          <a class="dropdown-toggle btn btn-lg btn-light" data-toggle="dropdown" href="#">Page 1
+          <a class="dropdown-toggle btn btn-lg btn-light" data-toggle="dropdown" href="#">Category
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <% if @categories.any?%>
-            <% @categories.each do |category| %>
-              <tr>
-                <td><%= category.name %></td>
-              </tr>
+              <% @categories.each do |category| %>
+              <li><%= link_to category.name, '#' , class: "btn btn-block btn-light btn-outline-dark"  %></li>
               <% end %>
-            <% else %>
-            <% end %>
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle btn btn-lg btn-light" data-toggle="dropdown" href="#">Location
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <% @locations.each do |location| %>
+              <li><%= link_to location.name, '#' , class: "btn btn-block btn-dark"  %></li>
+              <% end %>
           </ul>
         </li>
 
         <li><%= link_to "Course",   courses_path , class: "btn btn-lg btn-light"  %></li>
-        <li><%= link_to "Category", categories_path, class: "btn btn-lg btn-light" %></li>
-        <li><%= link_to "Location", locations_path, class: "btn btn-lg btn-light" %></li>
         <li><%= link_to "Login", "#", class: "btn btn-lg btn-light" %></li>
 
       </ul>
