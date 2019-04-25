@@ -1,11 +1,30 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="container">
-    <%= link_to "sample app", '#', id: "logo" %>
+  <div class="container-fluid" >
+    <%= link_to "Course Management System", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   main_path %></li>
-        <li><%= link_to "Help",   '#' %></li>
-        <li><%= link_to "Log in", '#' %></li>
+        <li><%= link_to "Home",   root_path , class: "btn btn-lg btn-light"  %></li>
+
+        <li class="dropdown">
+          <a class="dropdown-toggle btn btn-lg btn-light" data-toggle="dropdown" href="#">Page 1
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% if @categories.any?%>
+            <% @categories.each do |category| %>
+              <tr>
+                <td><%= category.name %></td>
+              </tr>
+              <% end %>
+            <% else %>
+            <% end %>
+          </ul>
+        </li>
+
+        <li><%= link_to "Course",   courses_path , class: "btn btn-lg btn-light"  %></li>
+        <li><%= link_to "Category", categories_path, class: "btn btn-lg btn-light" %></li>
+        <li><%= link_to "Location", locations_path, class: "btn btn-lg btn-light" %></li>
+        <li><%= link_to "Login", "#", class: "btn btn-lg btn-light" %></li>
+
       </ul>
     </nav>
   </div>
