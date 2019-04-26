@@ -10,6 +10,8 @@ class CoursesController < ApplicationController
   # GET /courses/1
   # GET /courses/1.json
   def show
+    @course =  Course.find(params[:id])
+
   end
 
   # GET /courses/new
@@ -59,6 +61,14 @@ class CoursesController < ApplicationController
       format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def thumpUp
+    like += 1
+  end
+
+  def thumpDown
+    dislike -= 1
   end
 
   private

@@ -2,28 +2,23 @@
 
 <h1>Courses</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Prerequisite</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @courses.each do |course| %>
       <tr>
-        <td><%= course.name %></td>
-        <td><%= course.prerequisite %></td>
-        <td><%= link_to 'Show', course %></td>
-        <td><%= link_to 'Edit', edit_course_path(course) %></td>
-        <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <div class="col " style="background: #fff;"">
+          <aside class="">
+            <section class="user_info">
+              <%= link_to gravatar_for(course.coordinator), course%>
+                <h4><b>Name: </b> <%= course.name %>
+                   <% if course.coordinator != nil %>
+                   <b>Coordinator: </b>  <%= link_to course.coordinator.name, course.coordinator%>
+                   <% else %>
+                   <strong> No Coordinator</strong>
+                   <% end %>
+                 </h4>
+                <h4><b>Email: </b> <%= course.prerequisite %></h4>
+                <h4><b>Like: </b> <%= course.like.to_i %> <b>Dislike: </b> <%= course.dislike.to_i %> </h4>
+            </section>
+          </aside>
+        </div>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Course', new_course_path %>
