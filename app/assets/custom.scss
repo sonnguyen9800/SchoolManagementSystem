@@ -194,7 +194,7 @@ aside {
     }
     h1 {
       font-size: 1.4em;
-      text-align: right;
+      text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
@@ -203,13 +203,15 @@ aside {
 }
 
 .gravatar {
-  float: right;
-  margin-right: 245px;
+  float: left;
+  margin-right: 10px;
 }
 
 .gravatar_edit {
   margin-top: 15px;
 }
+
+
 
 /* forms */
 
