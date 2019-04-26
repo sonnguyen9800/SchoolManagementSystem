@@ -11,7 +11,7 @@
           <ul class="dropdown-menu">
               <% @categories.each do |category| %>
 
-              <li><%= link_to category.name, "#" , class: "btn btn-block btn-light btn-outline-dark"  %></li>
+              <li><%= link_to category.name, category_courses_path(category) , class: "btn btn-block btn-light btn-outline-dark"  %></li>
               <% end %>
           </ul>
         </li>
@@ -21,7 +21,7 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <% @locations.each do |location| %>
-              <li><%= link_to location.name, '#' , class: "btn btn-block btn-dark"  %></li>
+              <li><%= link_to location.name, location_courses_path(location) , class: "btn btn-block btn-dark"  %></li>
               <% end %>
           </ul>
         </li>

@@ -7,6 +7,18 @@ class LocationsController < ApplicationController
     @locations = Location.all
   end
 
+  def courses
+    @location = Location.find(params[:id])
+    @courses = []
+    for course in Course.all
+      if course.locations.include?(@location)
+        @courses << course
+      end
+    end
+
+    render 'courses/index.html.erb'
+
+  end
   # GET /locations/1
   # GET /locations/1.json
   def show

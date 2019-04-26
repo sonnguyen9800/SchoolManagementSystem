@@ -7,6 +7,17 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def courses
+    @category = Category.find(params[:id])
+    @courses = []
+    for course in Course.all
+      if course.categories.include?(@category)
+        @courses << course
+      end
+    end
+    render 'courses/index.html.erb'
+  end
+
   # GET /categories/1
   # GET /categories/1.json
   def show
