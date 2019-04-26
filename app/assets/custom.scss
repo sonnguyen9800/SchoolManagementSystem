@@ -174,7 +174,7 @@ $gray-medium-light: #eaeaea;
   @include box_sizing;
 }
 
-/* sidebar */
+/* bar */
 
 aside {
   section.user_info {
@@ -194,7 +194,7 @@ aside {
     }
     h1 {
       font-size: 1.4em;
-      text-align: left;
+      text-align: right;
       letter-spacing: -1px;
       margin-bottom: 3px;
       margin-top: 0px;
@@ -203,8 +203,8 @@ aside {
 }
 
 .gravatar {
-  float: left;
-  margin-right: 10px;
+  float: right;
+  margin-right: 245px;
 }
 
 .gravatar_edit {

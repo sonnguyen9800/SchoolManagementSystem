@@ -1,14 +1,18 @@
-<p id="notice"><%= notice %></p>
+<h1> <b>Coordinator</b></h1>
+<div class="col container-fluid" style="background: #A9A9A9;"">
+  <aside class="">
+    <section class="user_info">
+      <%= gravatar_for @coordinator %>
+      <div class="row">
+        <h4><b>Name: </b> <%= @coordinator.name %></h4>
+        <h4><b>Email: </b> <%= @coordinator.email %></h4>
+        <% if @coordinator.course != nil %>
+        <h4>Course: <%= @coordinator.course.name %></h4>
+        <% else %>
+        <h4>No Course Assigned To</h4>
+        <% end %>
+      </div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @coordinator.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @coordinator.email %>
-</p>
-
-<%= link_to 'Edit', edit_coordinator_path(@coordinator) %> |
-<%= link_to 'Back', coordinators_path %>
+    </section>
+  </aside>
+</div>
