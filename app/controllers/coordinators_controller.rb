@@ -10,6 +10,7 @@ class CoordinatorsController < ApplicationController
   # GET /coordinators/1
   # GET /coordinators/1.json
   def show
+    
   end
 
   # GET /coordinators/new
