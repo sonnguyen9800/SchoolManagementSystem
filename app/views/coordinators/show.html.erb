@@ -7,7 +7,7 @@
         <h4><b>Name: </b> <%= @coordinator.name %></h4>
         <h4><b>Email: </b> <%= @coordinator.email %></h4>
         <% if @coordinator.course != nil %>
-        <h4>Course Assigned To: <%= @coordinator.course.name %></h4>
+        <h4>Course Assigned To: <%= link_to @coordinator.course.name, @coordinator.course %></h4>
         <% else %>
         <h4>No Course Assigned To</h4>
         <% end %>

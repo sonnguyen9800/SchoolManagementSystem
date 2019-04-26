@@ -6,7 +6,6 @@ class CoursesController < ApplicationController
   def index
     @courses = Course.all
   end
-
   # GET /courses/1
   # GET /courses/1.json
   def show

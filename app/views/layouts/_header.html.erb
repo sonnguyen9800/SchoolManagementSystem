@@ -10,7 +10,8 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <% @categories.each do |category| %>
-              <li><%= link_to category.name, '#' , class: "btn btn-block btn-light btn-outline-dark"  %></li>
+
+              <li><%= link_to category.name, "#" , class: "btn btn-block btn-light btn-outline-dark"  %></li>
               <% end %>
           </ul>
         </li>
