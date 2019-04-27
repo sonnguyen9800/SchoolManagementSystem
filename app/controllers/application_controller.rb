@@ -6,4 +6,7 @@ class ApplicationController < ActionController::Base
     @courses = Course.all
     @locations = Location.all
   end
+
+  include SessionsHelper
+
 end

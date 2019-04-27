@@ -3,6 +3,7 @@
     <%= link_to "Course Management System", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
+
         <li><%= link_to "Home",   root_path , class: "btn btn-lg btn-light"  %></li>
 
         <li class="dropdown">
@@ -10,7 +11,6 @@
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
               <% @categories.each do |category| %>
-
               <li><%= link_to category.name, category_courses_path(category) , class: "btn btn-block btn-light btn-outline-dark"  %></li>
               <% end %>
           </ul>
@@ -28,8 +28,24 @@
 
         <li><%= link_to "Course",   courses_path , class: "btn btn-lg btn-light"  %></li>
         <li><%= link_to "Coordinator",   coordinators_path , class: "btn btn-lg btn-light"  %></li>
-        <li><%= link_to "Login", "#", class: "btn btn-lg btn-light" %></li>
-        <li><%= link_to "Signup", signup_path, class: "btn btn-lg btn-light" %></li>
+
+        <% if logged_in? %>
+            <li class="dropdown">
+            <a href="#" class="dropdown-toggle btn btn-lg btn-light " data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_coordinator %></li>
+              <li><%= link_to "Settings", '#' %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: :delete, class: "btn btn-block btn-dark" %>
+              </li>
+            </ul>
+          </li>
+        <% else %>
+        <li><%= link_to "Login",   login_path , class: "btn btn-lg btn-light"  %></li>
+        <% end %>
 
 
       </ul>

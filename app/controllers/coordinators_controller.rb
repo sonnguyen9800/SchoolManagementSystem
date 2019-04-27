@@ -66,7 +66,8 @@ class CoordinatorsController < ApplicationController
   def create
     @coordinator = Coordinator.new(coordinator_params)
     if @coordinator.save
-      flash[:success] = "Welcome to the Sample App!"
+      log_in @coordinator
+      flash[:success] = "Welcome to the system!"
       redirect_to courses_path
     else
       render 'new'
