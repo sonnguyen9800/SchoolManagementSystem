@@ -8,7 +8,8 @@ class SessionsController < ApplicationController
       # Log the user in and redirect to the user's show page.
       flash[:success] = 'Login Successfully' # Not quite right!
       log_in coordinator
-      redirect_to coordinator
+      params[:session][:remember_me] == '1' ? remember(coordinator) : forget(coordinator)
+      redirect_back_or coordinator
     else
       # Create an error message.
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
@@ -17,7 +18,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    log_out
-    redirect_to root_path
+    log_out if logged_in?
+      redirect_to root_path
   end
 end
