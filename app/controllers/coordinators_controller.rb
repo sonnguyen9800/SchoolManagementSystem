@@ -63,6 +63,17 @@ class CoordinatorsController < ApplicationController
     end
   end
 
+  def create
+    @coordinator = Coordinator.new(coordinator_params)
+    if @coordinator.save
+      flash[:success] = "Welcome to the Sample App!"
+      redirect_to courses_path
+    else
+      render 'new'
+    end
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_coordinator
@@ -71,6 +82,6 @@ class CoordinatorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def coordinator_params
-      params.require(:coordinator).permit(:name, :email)
+      params.require(:coordinator).permit(:name, :email, :password, :password_confirmation)
     end
 end
