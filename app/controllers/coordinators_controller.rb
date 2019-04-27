@@ -63,23 +63,10 @@ class CoordinatorsController < ApplicationController
 
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_coordinator
-      @coordinator = Coordinator.find(params[:id])
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def coordinator_params
       params.require(:coordinator).permit(:name, :email, :password, :password_confirmation)
     end
-
-    def logged_in_coordinator
-       unless logged_in?
-         store_location
-         flash[:danger] = "Please log in."
-         redirect_to login_url
-       end
-     end
 
      def correct_coordinator
        @coordinator = Coordinator.find(params[:id])
@@ -90,7 +77,7 @@ class CoordinatorsController < ApplicationController
 
        if current_coordinator?(@coordinator) == false && logged_in?
          redirect_to(root_url)
-         flash[:danger] = "You don't have the permission to edit"
+         flash[:danger] = "You don't have the permission to access"
        end
      end
 end
