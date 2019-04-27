@@ -1,9 +1,8 @@
 class CoordinatorsController < ApplicationController
-  #before_action :logged_in_user, only: [:edit, :update]
+  #before_action :set_coordinator, only: [:show, :edit, :update, :destroy]
   before_action :correct_coordinator,   only: [:edit, :update]
   before_action :logged_in_coordinator, only: [:edit, :update]
 
-  #before_action :logged_in_user, only: [:edit, :update]
 
   # GET /coordinators
   # GET /coordinators.json
@@ -25,6 +24,7 @@ class CoordinatorsController < ApplicationController
 
   # GET /coordinators/1/edit
   def edit
+    @coordinator = Coordinator.find(params[:id])
   end
 
   # POST /coordinators
@@ -83,6 +83,14 @@ class CoordinatorsController < ApplicationController
 
      def correct_coordinator
        @coordinator = Coordinator.find(params[:id])
-       redirect_to(root_url) unless current_coordinator?(@coordinator)
+       if !logged_in?
+         redirect_to(root_url)
+         flash[:danger] = "Please Log in First"
+       end
+
+       if current_coordinator?(@coordinator) == false && logged_in?
+         redirect_to(root_url)
+         flash[:danger] = "You don't have the permission to edit"
+       end
      end
 end
