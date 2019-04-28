@@ -68,16 +68,17 @@ class CoordinatorsController < ApplicationController
       params.require(:coordinator).permit(:name, :email, :password, :password_confirmation)
     end
 
+      #Confirm the users
      def correct_coordinator
-       @coordinator = Coordinator.find(params[:id])
-       if !logged_in?
-         redirect_to(root_url)
-         flash[:danger] = "Please Log in First"
-       end
+         @coordinator = Coordinator.find(params[:id])
+         if !logged_in?
+           redirect_to(root_url)
+           flash[:danger] = "Please Log in First"
+         end
 
-       if current_coordinator?(@coordinator) == false && logged_in?
-         redirect_to(root_url)
-         flash[:danger] = "You don't have the permission to access"
-       end
+         if current_coordinator?(@coordinator) == false && logged_in?
+           redirect_to(root_url)
+           flash[:danger] = "You don't have the permission to access"
+         end
      end
 end

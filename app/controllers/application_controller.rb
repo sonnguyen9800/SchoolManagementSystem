@@ -8,12 +8,14 @@ class ApplicationController < ActionController::Base
   end
 
   include SessionsHelper
+
   private
   def logged_in_coordinator
-     unless logged_in?
-       store_location
-       flash[:danger] = "Please log in."
-       redirect_to login_url
-     end
-   end
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
 end

@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       flash[:success] = 'Login Successfully' # Not quite right!
       log_in coordinator
       params[:session][:remember_me] == '1' ? remember(coordinator) : forget(coordinator)
-      redirect_back_or coordinator
+      redirect_back_or courses_path
     else
       # Create an error message.
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
