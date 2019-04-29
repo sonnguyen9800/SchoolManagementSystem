@@ -57,6 +57,9 @@ GEM
     bootstrap-sass (3.4.1)
       autoprefixer-rails (>= 5.2.1)
       sassc (>= 2.0.0)
+    bootstrap-tooltip-rails (0.1)
+      rails (>= 3.1)
+      thor
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.18.0)
@@ -256,6 +259,7 @@ DEPENDENCIES
   bcrypt
   bootsnap (>= 1.1.0)
   bootstrap-sass
+  bootstrap-tooltip-rails
   byebug
   capybara (>= 2.15)
   carrierwave
@@ -288,4 +292,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   1.17.2
+   1.17.3

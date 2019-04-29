@@ -14,6 +14,22 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap/bootstrap-tooltip
 //= require bootstrap
+$(function(){
+  $("a[rel='youtube']").tooltip({title: "<img src=\"assets/youtube-32.png\" />", html: true});
+})
+$(function(){
+  $("a[rel='twitter']").tooltip({title: "<img src=\"assets/twitter-32.png\" />", html: true});
+})
+$(function(){
+  $("a[rel='facebook']").tooltip({title: "<img src=\"assets/facebook-32.png\" />", html: true});
+})
+$(function(){
+  $("a[rel='instagram']").tooltip({title: "<img src=\"assets/instagram-32.png\" />", html: true});
+})
+$(function(){
+  $("a[rel='skype']").tooltip({title: "<img src=\"assets/skype-32.png\" />", html: true});
+})
 //= require turbolinks
 //= require_tree .

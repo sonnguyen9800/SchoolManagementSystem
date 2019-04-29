@@ -8,6 +8,7 @@ gem 'rails', '~> 5.2.3'
 
 # Using bootstrap-sass:
 gem 'bootstrap-sass'
+gem 'bootstrap-tooltip-rails'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
