@@ -4,7 +4,6 @@ class Coordinator < ApplicationRecord
 
     before_save { self.email = email.downcase }
     VALID_EMAIL_REGEX = /\A\w+\.\w+@rmit\.edu\.au\z/i
-    #VALID_EMAIL_REGEX = /\A[\w+\-.]+@[rmit]+(\.[edu]+)*\.au/i
     VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/
 
     validates :email, presence: true, length: { maximum: 255 },
