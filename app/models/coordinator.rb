@@ -2,6 +2,9 @@ class Coordinator < ApplicationRecord
     has_one :course
         attr_accessor :remember_token
 
+    has_many :upvotes, dependent: :destroy
+    has_many :downvotes, dependent: :destroy
+
     before_save { self.email = email.downcase }
     VALID_EMAIL_REGEX = /\A\w+\.\w+@rmit\.edu\.au\z/i
     VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/

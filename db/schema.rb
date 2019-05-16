@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_04_27_122121) do
+ActiveRecord::Schema.define(version: 2019_05_16_085027) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_04_27_122121) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "prerequisite"
-    t.integer "coordinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coordinator_id"
     t.integer "like"
     t.integer "dislike"
   end
@@ -49,10 +49,36 @@ ActiveRecord::Schema.define(version: 2019_04_27_122121) do
     t.index ["course_id", "location_id"], name: "index_courses_locations_on_course_id_and_location_id", unique: true
   end
 
+  create_table "downvotes", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "coordinator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coordinator_id"], name: "index_downvotes_on_coordinator_id"
+    t.index ["course_id"], name: "index_downvotes_on_course_id"
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "upvotes", force: :cascade do |t|
+    t.integer "course_id"
+    t.integer "coordinator_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["coordinator_id"], name: "index_upvotes_on_coordinator_id"
+    t.index ["course_id"], name: "index_upvotes_on_course_id"
   end
 
 end

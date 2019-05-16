@@ -1,11 +1,18 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
+  get 'downvotes/create'
+  get 'upvotes/create'
+  get 'upvotes/destroy'
   resources :coordinators
-  resources :courses
+
+  resources :courses do
+    resources :upvotes, only: [:create, :destroy]
+    resources :downvotes, only: [:create, :destroy]
+  end
   resources :locations
   resources :categories
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'main#home'
+
   get '/help' , to:  'main#help'
   get '/signup', to: 'coordinators#new'
   post '/signup',  to: 'coordinators#create'
