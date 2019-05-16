@@ -6,6 +6,7 @@ class DownvotesController < ApplicationController
    if vote_status == 0 #no vote
      start_downvote
      redirect_to courses_path
+
    elsif vote_status == 1
      start_downvote
      delete_upvote
@@ -15,7 +16,12 @@ class DownvotesController < ApplicationController
      delete_downvote
      redirect_to courses_path
 
+   elsif vote_status == -100
+     flash[:danger] = 'You must log in first'
+     redirect_to courses_path
+
    end
+
   end
 
   private
