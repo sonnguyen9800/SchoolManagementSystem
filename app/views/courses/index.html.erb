@@ -16,7 +16,20 @@
                    <% end %>
                  </h4>
                 <h4><b>Prerequisite: </b> <%= course.prerequisite %></h4>
-                <h4><b>Like: </b> <%= course.like.to_i %> <b>Dislike: </b> <%= course.dislike.to_i %> </h4>
+
+                <h4><%= link_to '', class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Like (<%= course.like.to_i %>)
+                <% end %>
+
+                <%= link_to '', class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Dislike (<%= course.dislike.to_i %>)
+                <% end %>
+
+              </h4>
+
+
             </section>
           </aside>
         </div>
