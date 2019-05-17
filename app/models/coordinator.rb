@@ -1,5 +1,5 @@
 class Coordinator < ApplicationRecord
-    has_many :courses
+    has_many :courses, dependent: :destroy
     attr_accessor :remember_token
 
     has_many :upvotes, dependent: :destroy
