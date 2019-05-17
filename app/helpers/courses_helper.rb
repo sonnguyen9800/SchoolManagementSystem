@@ -10,4 +10,5 @@ module CoursesHelper
       redirect_to courses_path
     end
   end
+
 end

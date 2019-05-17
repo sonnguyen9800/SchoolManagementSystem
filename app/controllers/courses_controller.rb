@@ -1,7 +1,8 @@
 class CoursesController < ApplicationController
   include CoursesHelper
   before_action :set_course, only: [:show]
-  before_action :current_coordinator_owned?, only: [ :edit, :create, :update]
+  before_action :current_coordinator_owned?, only: [ :edit, :update]
+  before_action :logged_in?, only: [:create]
   # GET /courses
   # GET /courses.json
   def index
@@ -83,5 +84,9 @@ class CoursesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
       params.require(:course).permit(:name, :prerequisite, :description, :coordinator_id, { category_ids:[] }, {location_ids:[] })
+    end
+
+    def logged_in?
+      redirect_to root_path unless current_coordinator != nil
     end
 end
