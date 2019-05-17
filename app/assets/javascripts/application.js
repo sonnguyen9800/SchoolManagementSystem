@@ -14,7 +14,10 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap.min
+//= require npm
 //= require bootstrap/bootstrap-tooltip
+//= require bootstrap-sprockets
 //= require bootstrap
 $(function(){
   $("a[rel='youtube']").tooltip({title: "<img src=\"assets/youtube-32.png\" />", html: true});

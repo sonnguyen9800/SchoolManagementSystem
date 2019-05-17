@@ -13,6 +13,15 @@ Rails.application.routes.draw do
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
+  
+  get '/new_category',  to: 'categories#new'
+  post '/new_category', to: 'categories#create'
+  
+  get '/new_location',  to: 'locations#new'
+  post '/new_location', to: 'location#create'
+
+  get '/new_course',  to: 'courses#new'
+  post '/new_course', to: 'courses#create'
 
   get '/locations/:id/courses', to: 'locations#courses', as: 'location_courses'
   get '/categories/:id/courses', to: 'categories#courses', as: 'category_courses'

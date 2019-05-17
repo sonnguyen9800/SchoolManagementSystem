@@ -7,13 +7,15 @@ ruby '2.6.0'
 gem 'rails', '~> 5.2.3'
 
 # Using bootstrap-sass:
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4', '>= 3.4.1'
 gem 'bootstrap-tooltip-rails'
+gem 'bootstrap_jt', '~> 0.1.0'
 gem 'jquery-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'font-awesome-rails'
 gem 'bcrypt'
+
 
 # Use sqlite3 as the database for Active Record
 

@@ -1,4 +1,5 @@
-<%= form_with(model: course, local: true) do |form| %>
+<%= form_with(model: course, local: true) do |f| %>
+  <% @coordinator ||= current_coordinator %>
   <% if course.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
@@ -11,17 +12,37 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+  
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
 
-  <div class="field">
-    <%= form.label :prerequisite %>
-    <%= form.text_field :prerequisite %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+      <%= f.label :prerequisite %>
+      <%= f.text_field :prerequisite, class: 'form-control' %>
+      
+      <%= f.hidden_field :coordinator_id, value: @coordinator.id %>
+      
+      <%= f.label :description %>
+      <%= f.text_area :description, class: 'form-control' %>
+      <%= f.label :Category%>
+      <div class="control-label">
+        <%= f.collection_check_boxes :category_ids, Category.all, :id, :show_name do |b|%>
+          <%= b.label class:"checkbox-inline" do%>
+           <%=b.check_box + b.text%>
+          <%end%>
+        <% end %>
+      </div>
+      <%= f.label :Location%>
+      <div class="control-label">
+        <%= f.collection_check_boxes :location_ids, Location.all, :id, :show_name do |b|%>
+          <%= b.label class:"checkbox-inline" do%>
+           <%=b.check_box + b.text%>
+          <%end%>
+        <% end %>
+      </div>
+      
+      <%= f.submit "Create my account", class: "btn btn-primary" %>
+    </div>
   </div>
 <% end %>
