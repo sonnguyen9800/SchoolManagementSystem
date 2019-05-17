@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  include CoursesHelper
+  before_action :set_course, only: [:show]
+  before_action :current_coordinator_owned?, only: [ :edit, :create, :update]
   # GET /courses
   # GET /courses.json
   def index
@@ -43,7 +44,8 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course }
+        flash[:success] = "Course has been updated"
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
