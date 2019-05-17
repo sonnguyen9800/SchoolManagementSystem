@@ -30,9 +30,9 @@ ActiveRecord::Schema.define(version: 2019_05_17_082802) do
   create_table "courses", force: :cascade do |t|
     t.string "name"
     t.string "prerequisite"
-    t.integer "coordinator_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "coordinator_id"
     t.integer "like"
     t.integer "dislike"
     t.text "description"
@@ -61,6 +61,14 @@ ActiveRecord::Schema.define(version: 2019_05_17_082802) do
 
   create_table "locations", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
