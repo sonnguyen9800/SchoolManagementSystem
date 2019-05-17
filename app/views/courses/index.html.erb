@@ -1,7 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
-
     <% @courses.each do |course| %>
       <tr>
         <div class="col " style="background: #fff;"">
@@ -16,7 +15,20 @@
                    <% end %>
                  </h4>
                 <h4><b>Prerequisite: </b> <%= course.prerequisite %></h4>
-                <h4><b>Like: </b> <%= course.like.to_i %> <b>Dislike: </b> <%= course.dislike.to_i %> </h4>
+
+                <h4><%= link_to course_upvotes_path(course), method: :post , class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Like (<%= course.upvotes.count %>)
+                <% end %>
+
+                <%= link_to course_downvotes_path(course), method: :post, class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Dislike (<%= course.downvotes.count %>)
+                <% end %>
+
+              </h4>
+
+
             </section>
           </aside>
         </div>
