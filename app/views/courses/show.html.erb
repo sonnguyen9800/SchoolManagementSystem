@@ -3,7 +3,7 @@
 <div class="nav-bar">
   <strong><% if @course.coordinator != nil && @course.coordinator == current_coordinator%>
   <%= button_to "Edit the course", edit_course_path(@course),
-  method: :post, class:"button_to" %></strong>
+  method: :get, class:"button_to" %></strong>
 </div>
 
 
