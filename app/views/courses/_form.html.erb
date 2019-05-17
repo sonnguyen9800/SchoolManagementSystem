@@ -44,6 +44,9 @@
         <% end %>
       </div>
 
+         <%= f.label :image %>
+         <%= f.file_field :image, class: 'form-control'%>
+
       <%= f.submit command, class: "btn btn-primary" %>
     </div>
   </div>

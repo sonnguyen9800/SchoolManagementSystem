@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_17_115931) do
+ActiveRecord::Schema.define(version: 2019_05_17_131621) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2019_05_17_115931) do
     t.integer "coordinator_id"
     t.integer "like"
     t.integer "dislike"
-    t.string "description"
+    t.text "description"
   end
 
   create_table "courses_categories", id: false, force: :cascade do |t|
