@@ -13,8 +13,11 @@
 
   <aside class="container">
     <section class="user_info">
-
-      <%= link_to  gravatar_for(@course.coordinator), @course.coordinator %>
+      <% if @course.image.attached? %>
+        <%= image_tag(@course.image, style:'width:10%', class: "gravatar") %>
+      <% else %>
+        <%= gravatar_for(@course.coordinator) %>
+      <% end %>
 
         <h4><b>Name: </b> <%= @course.name %>
           <% if @course.coordinator != nil %>
@@ -50,6 +53,14 @@
             </h4>
           <% else %>
             <h4>Categories: None</h4>
+          <% end %>
+          
+          <% if @course.description != 0 %>
+            <h4><strong>Description: </strong>
+            <%= @course.description %>
+            </h4>
+          <% else %>
+            <h4>Description: None</h4>
           <% end %>
 
           <h4><strong> Created from: </strong> <%= time_ago_in_words(@course.created_at)%>
