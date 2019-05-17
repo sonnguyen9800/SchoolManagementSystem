@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   include CoursesHelper
   before_action :set_course, only: [:show]
-  before_action :current_coordinator_owned?, only: [ :edit, :update, :create]
+  before_action :current_coordinator_owned?, only: [ :edit, :update]
   before_action :logged_in_coordinator, only: [:create]
   # GET /courses
   # GET /courses.json

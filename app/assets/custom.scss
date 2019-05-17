@@ -216,7 +216,7 @@ aside {
 /* forms */
 
 input, textarea, select, .uneditable-input {
-  border: 1px solid #bbb;
+  border: 2px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
   @include box_sizing;
@@ -225,6 +225,10 @@ input, textarea, select, .uneditable-input {
 input {
   color: #000
   height: auto !important;
+}
+.input_checkbox input {
+  border: 2px solid #bbb;
+
 }
 
 #error_explanation {
@@ -243,15 +247,17 @@ input {
 }
 
 .checkbox {
+  width: auto;
   margin-top: -10px;
   margin-bottom: 10px;
+
   span {
     margin-left: 20px;
     font-weight: normal;
   }
 }
 
- 
+
 #session_remember_me {
   width: auto;
   margin-left: 0;
