@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_category, only: [:show]
+  before_action :logged_in_coordinator, only: [:index, :create]
   # GET /categories
   # GET /categories.json
   def index

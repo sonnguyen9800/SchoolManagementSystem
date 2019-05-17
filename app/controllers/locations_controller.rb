@@ -1,5 +1,6 @@
 class LocationsController < ApplicationController
-  before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :set_location, only: [:show]
+  before_action :logged_in_coordinator, only: [:index, :create]
 
   # GET /locations
   # GET /locations.json

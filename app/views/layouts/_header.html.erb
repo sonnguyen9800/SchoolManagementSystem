@@ -10,12 +10,12 @@
           <a class="dropdown-toggle btn btn-lg btn-light" data-toggle="dropdown" href="#">Category
           <span class="caret"></span></a>
           <ul class="dropdown-menu">
+
               <% @categories.each do |category| %>
               <li><%= link_to category.name, category_courses_path(category) , class: "btn btn-block btn-light btn-outline-dark"  %></li>
               <% end %>
-              <li class="divider"></li>
               <% if logged_in? %>
-                <li><%= link_to "Create Category",   '/new_category' , class: "btn btn-lg btn-light"  %></li>
+                <li><%= link_to "Create Category", new_category_path, class: "btn btn-block btn-light btn-outline-dark"   %></li>
               <% end %>
           </ul>
         </li>
@@ -29,7 +29,7 @@
               <% end %>
               <li class="divider"</li>
               <% if logged_in? %>
-                <li><%= link_to "Create Location",   '/new_location' , class: "btn btn-lg btn-light"  %></li>
+                <li><%= link_to "Create Location",   new_location_path %></li>
               <% end %>
           </ul>
         </li>
