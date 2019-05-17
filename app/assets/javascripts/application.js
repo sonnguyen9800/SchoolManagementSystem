@@ -13,13 +13,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require jquery
-<<<<<<< HEAD
 //= require jquery_ujs
 //= require bootstrap.min
 //= require npm
-=======
-
->>>>>>> 05d84ff94881dd70c090934cc6c01de1fe716bb0
 //= require bootstrap/bootstrap-tooltip
 //= require bootstrap-sprockets
 //= require bootstrap
