@@ -1,4 +1,4 @@
-# This migration comes from active_storage (originally 20170806125915)
+# This migration comes from active_storage (originally 20190517131621)
 class CreateActiveStorageTables < ActiveRecord::Migration[5.2]
   def change
     create_table :active_storage_blobs do |t|
