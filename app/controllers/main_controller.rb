@@ -3,11 +3,10 @@ class MainController < ApplicationController
   def home
     if logged_in?
       flash[:success] = "Welcome Back"
-      redirect_to courses_path    
+      redirect_to courses_path
     end
   end
 
   def help
-
   end
 end

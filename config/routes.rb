@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :contacts
+  get 'feedback/new'
+  get 'feedback/create'
+  get 'feedback/destroy'
   get 'downvotes/create'
   get 'upvotes/create'
   get 'upvotes/destroy'
@@ -15,16 +17,19 @@ Rails.application.routes.draw do
   root 'main#home'
 
   get '/help' , to:  'main#help'
+  get '/contact', to: 'main#feedback'
+  post '/contact', to: 'main#feedback', as: 'new_feedback'
+
   get '/signup', to: 'coordinators#new'
   post '/signup',  to: 'coordinators#create'
 
   get    '/login',   to: 'sessions#new'
   post   '/login',   to: 'sessions#create'
   delete '/logout',  to: 'sessions#destroy'
-  
+
   get '/new_category',  to: 'categories#new'
   post '/new_category', to: 'categories#create'
-  
+
   get '/new_location',  to: 'locations#new'
   post '/new_location', to: 'location#create'
 
