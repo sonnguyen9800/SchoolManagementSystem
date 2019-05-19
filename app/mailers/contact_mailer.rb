@@ -7,7 +7,6 @@ class ContactMailer < ApplicationMailer
   #
   def contact_info(contact)
     @contact = contact
-
-    mail to: "quocanhdk51@gmail.com", subject: contact.name + " sent a contact request"
+    mail to: "nguyenhs9800@gmail.com", subject: contact.name + " sent a contact request"
   end
 end
