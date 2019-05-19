@@ -88,6 +88,13 @@ ActiveRecord::Schema.define(version: 2019_05_19_090101) do
     t.index ["course_id"], name: "index_downvotes_on_course_id"
   end
 
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "subject"
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "locations", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false

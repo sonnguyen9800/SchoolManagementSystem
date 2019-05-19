@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+
   get 'feedback/new'
   get 'feedback/create'
+  post 'feedback/create'
   get 'feedback/destroy'
+
   get 'downvotes/create'
   get 'upvotes/create'
   get 'upvotes/destroy'
@@ -17,8 +20,6 @@ Rails.application.routes.draw do
   root 'main#home'
 
   get '/help' , to:  'main#help'
-  get '/contact', to: 'main#feedback'
-  post '/contact', to: 'main#feedback', as: 'new_feedback'
 
   get '/signup', to: 'coordinators#new'
   post '/signup',  to: 'coordinators#create'
