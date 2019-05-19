@@ -14,6 +14,7 @@ class CoordinatorsController < ApplicationController
   # GET /coordinators/1.json
   def show
     @coordinator = Coordinator.find(params[:id])
+    @courses = @coordinator.courses
 
   end
 
