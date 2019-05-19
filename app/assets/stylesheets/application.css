@@ -14,31 +14,3 @@
  *= require_self
  *= require bootstrap/bootstrap-tooltip
  */
-.button_feedback {
-
-  /* background-color: silver ; */
-  background-color: #009999
-    border: 0.1px solid #080808;;
-    color: silver;
-    padding: 8px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size:20px;
-    margin: 8px 6px 6px 8px;
-    cursor: pointer;
-    border-radius: 12px;
-    width:140px;
-    height: 50px;
-
-    margin-right: 10px;
-    font-size: 1.7em;
-    color: #ddd;
-    text-transform: uppercase;
-    letter-spacing: -1px;
-    padding-top: 9px;
-    font-weight: bold;
-}
-.button_feedback:hover{
-  background-color: grey;
-}

@@ -6,7 +6,9 @@ class MainController < ApplicationController
       redirect_to courses_path
     end
   end
+  def error
 
+  end
   def help
   end
 end

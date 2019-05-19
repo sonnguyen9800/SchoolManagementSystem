@@ -40,4 +40,7 @@ Rails.application.routes.draw do
   get '/locations/:id/courses', to: 'locations#courses', as: 'location_courses'
   get '/categories/:id/courses', to: 'categories#courses', as: 'category_courses'
 
+  get '/error', to: 'main#error'
+  get "^((?!active_storage).)*$" => redirect("/error")
+
 end
