@@ -41,6 +41,6 @@ Rails.application.routes.draw do
   get '/categories/:id/courses', to: 'categories#courses', as: 'category_courses'
 
   get '/error', to: 'main#error'
-  get "^((?!active_storage).)*$" => redirect("/error")
+  get "^((?!/rails/active_storage/disk).)*$" => redirect("/error")
 
 end
