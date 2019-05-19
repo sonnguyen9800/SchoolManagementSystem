@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   get 'downvotes/create'
   get 'upvotes/create'
   get 'upvotes/destroy'
