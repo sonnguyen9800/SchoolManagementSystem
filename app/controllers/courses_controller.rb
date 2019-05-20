@@ -1,6 +1,8 @@
 class CoursesController < ApplicationController
+  include SessionsHelper
   include CoursesHelper
-  before_action :set_course, only: [:show]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_admin, only: [:detroy]
   before_action :current_coordinator_owned?, only: [ :edit, :update]
   before_action :logged_in_coordinator, only: [:create]
   # GET /courses
@@ -33,7 +35,6 @@ class CoursesController < ApplicationController
       if @course.save
         format.html { redirect_to @course }
         flash[:success] = @course.name + " has been created"
-
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -62,7 +63,8 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      flash[:success] = "You just remove a course"
+      format.html { redirect_to courses_url}
       format.json { head :no_content }
     end
   end
@@ -78,11 +80,7 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      if Course.where(:id => params[:id]).empty?
-        redirect_to error_path
-      else
       @course = Course.find(params[:id])
-    end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

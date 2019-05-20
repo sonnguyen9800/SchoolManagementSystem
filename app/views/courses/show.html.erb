@@ -1,13 +1,21 @@
 <h1> <b>Course</b></h1>
-
+<h1><%= @course.name %></h1>
 <div class="nav-bar">
-  <strong><% if @course.coordinator != nil && @course.coordinator == current_coordinator%>
+
+
+  <% if logged_in? && (@course.coordinator == current_coordinator || current_coordinator.adminflag == true)%>
+  <strong>
   <%= button_to "Edit the course", edit_course_path(@course),
   method: :get, class:"button_to" %></strong>
+  <% end %>
+
+  <% if logged_in? && (current_coordinator.adminflag == true)%>
+  <strong>
+  <%= button_to "Delete the course", course_path(@course),
+  method: :delete, class:"button_to" %></strong>
+  <% end %>
+
 </div>
-
-
-<% end %>
 
 <div class="col" style="background: #A9A9A9;"">
 
@@ -49,7 +57,7 @@
           <% else %>
             <h4>Categories: None</h4>
           <% end %>
-          
+
           <% if @course.description != 0 %>
             <h4><strong>Description: </strong>
             <%= @course.description %>
@@ -57,8 +65,6 @@
           <% else %>
             <h4>Description: None</h4>
           <% end %>
-
-          <h4><strong>Description:</strong> <%=@course.description %></h4>
 
           <h4><strong> Created from: </strong> <%= time_ago_in_words(@course.created_at)%>
         </h4>
