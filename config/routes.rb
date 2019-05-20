@@ -40,6 +40,9 @@ Rails.application.routes.draw do
   get '/locations/:id/courses', to: 'locations#courses', as: 'location_courses'
   get '/categories/:id/courses', to: 'categories#courses', as: 'category_courses'
 
+  get '/courses/:id/reset_vote', to: 'courses#reset_vote', as: 'course_reset_vote'
+  # post '/courses/:id/reset_vote', to: 'courses#reset_vote', as: 'course_reset_vote'
+
   get '/error', to: 'main#error'
   get "^((?!/rails/active_storage/disk).)*$" => redirect("/error")
 

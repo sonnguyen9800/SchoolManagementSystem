@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
   include SessionsHelper
   include CoursesHelper
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :logged_in_admin, only: [:detroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :reset_vote]
+  before_action :logged_in_admin, only: [:detroy, :reset_vote]
   before_action :current_coordinator_owned?, only: [ :edit, :update]
   before_action :logged_in_coordinator, only: [:create]
   # GET /courses
@@ -75,6 +75,12 @@ class CoursesController < ApplicationController
 
   def thumpDown
     dislike -= 1
+  end
+
+  def reset_vote
+    @course.upvotes.destroy_all
+    @course.downvotes.destroy_all
+    redirect_to courses_path
   end
 
   private

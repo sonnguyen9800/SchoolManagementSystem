@@ -30,6 +30,13 @@
                   Dislike (<%= course.downvotes.count %>)
                 <% end %>
 
+                <% if logged_in? && current_coordinator.adminflag == true %>
+                <%= link_to course_reset_vote_path(course), class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon glyphicon-fire"></span>
+                  Reset Button
+                  <% end %>
+                <% end %>
+
               </h4>
 
 

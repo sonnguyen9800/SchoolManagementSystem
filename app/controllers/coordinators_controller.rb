@@ -1,7 +1,8 @@
 class CoordinatorsController < ApplicationController
-  #before_action :set_coordinator, only: [:show, :edit, :update, :destroy]
+  before_action :set_coordinator, only: [:show, :edit, :update, :destroy]
   before_action :correct_coordinator,   only: [:edit, :update]
   before_action :logged_in_coordinator, only: [:edit, :update]
+  before_action :logged_in_admin, only: [:detroy, :edit, :update]
 
 
   # GET /coordinators
@@ -65,6 +66,10 @@ class CoordinatorsController < ApplicationController
 
   private
     # Never trust parameters from the scary internet, only allow the white list through.
+    def set_coordinator
+      @coordinator = Coordinator.find(params[:id])
+    end
+
     def coordinator_params
       params.require(:coordinator).permit(:name, :email, :password, :password_confirmation)
     end
@@ -72,6 +77,10 @@ class CoordinatorsController < ApplicationController
       #Confirm the users
      def correct_coordinator
          @coordinator = Coordinator.find(params[:id])
+         if current_coordinator.adminflag == true
+           return true
+         end
+
          if !logged_in?
            redirect_to(root_url)
            flash[:danger] = "Please Log in First"
