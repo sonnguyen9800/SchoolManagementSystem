@@ -104,4 +104,8 @@ Rails.application.configure do
    :authentication       => "plain",
   :enable_starttls_auto => true
   }
+
+  # Remove default error page
+
+
 end

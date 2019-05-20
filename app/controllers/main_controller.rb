@@ -5,9 +5,21 @@ class MainController < ApplicationController
       redirect_to courses_path
     end
   end
-  def error
-
+  def error404
+    @text = '404'
+    render '/main/error.html.erb'
   end
+
+  def error422
+    @text = '422'
+    render '/main/error.html.erb'
+  end
+
+  def error500
+    @text = '500'
+    render '/main/error.html.erb'
+  end
+
   def help
   end
 end

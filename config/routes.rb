@@ -46,5 +46,16 @@ Rails.application.routes.draw do
   # get "^((?!/rails).)*$" => redirect("/error")
 
 
+  if Rails.env.production?
+     get '404', :to => 'main#error404'
+     get '422', :to => 'main#error422'
+     get '500', :to => 'main#error500'
+  end
+
+  if Rails.env.development?
+    get '404', :to => 'main#error404'
+    get '422', :to => 'main#error422'
+    get '500', :to => 'main#error500'
+  end
 
 end
