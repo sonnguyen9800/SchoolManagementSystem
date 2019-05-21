@@ -92,7 +92,7 @@ GEM
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
-    ffi (1.11.0)
+    ffi (1.11.1)
     font-awesome-rails (4.7.0.5)
       railties (>= 3.2, < 6.1)
     formatador (0.2.5)
@@ -214,7 +214,7 @@ GEM
     sassc (2.0.1)
       ffi (~> 1.9)
       rake
-    selenium-webdriver (3.142.2)
+    selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
     shellany (0.0.1)
@@ -294,4 +294,4 @@ RUBY VERSION
    ruby 2.6.0p0
 
 BUNDLED WITH
-   1.17.3
+   2.0.1
