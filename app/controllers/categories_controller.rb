@@ -1,6 +1,8 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show]
-  before_action :logged_in_coordinator, only: [:index, :create]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_coordinator, only: [:index, :create, :edit]
+  before_action :logged_in_admin, only: [:detroy]
+
   # GET /categories
   # GET /categories.json
   def index
@@ -40,7 +42,8 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        flash[:success] = "You just create a new category"
+        format.html { redirect_to courses_path}
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new }

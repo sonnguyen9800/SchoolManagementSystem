@@ -5,9 +5,10 @@ class ContactMailer < ApplicationMailer
   #
   #   en.contact_mailer.contact_info.subject
   #
-  def send_feedback(feedback)
+  def send_feedback(feedback, email_address)
     @feedback = feedback
-    mail to: "quocanhdk51@gmail.com", subject: feedback.subject
-    mail to: "nguyenhs9800@gmail.com", subject: feedback.subject
+    @email = email_address
+    mail to: @email, subject: feedback.subject
   end
+
 end

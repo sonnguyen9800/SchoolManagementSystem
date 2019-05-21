@@ -17,9 +17,9 @@ class ApplicationController < ActionController::Base
         redirect_to login_url
       end
     end
-    
+
   def logged_in_admin
-    unless logged_in? && current_coordinator.adminflag == true
+    unless logged_in? || current_coordinator.adminflag == true
       flash[:danger] = "You are not admin"
       redirect_to courses_path
     end

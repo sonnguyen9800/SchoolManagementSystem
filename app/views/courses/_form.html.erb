@@ -20,7 +20,17 @@
         <%= f.label :prerequisite %>
         <%= f.text_field :prerequisite, class: 'form-control' %>
 
+        <% if @coordinator.adminflag == true %>
+          <%= f.label :coordinator_id %>
+          <%= f.select :coordinator_id,
+          Coordinator.all.order(:name).collect{
+            |coordinator| [( coordinator.name), coordinator.id]
+          }%>
+
+        <% else %>
         <%= f.hidden_field :coordinator_id, value: @coordinator.id %>
+        <% end %>
+
         <%= f.label :description %>
         <%= f.text_area :description, class: 'form-control' %>
 
