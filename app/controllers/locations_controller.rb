@@ -1,5 +1,7 @@
 class LocationsController < ApplicationController
   before_action :set_location, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_coordinator, only: [:index, :create, :edit]
+  before_action :logged_in_admin, only: [:detroy]
 
   # GET /locations
   # GET /locations.json
@@ -40,7 +42,8 @@ class LocationsController < ApplicationController
 
     respond_to do |format|
       if @location.save
-        format.html { redirect_to @location, notice: 'Location was successfully created.' }
+        flash[:success] = "Location was successfully created."
+        format.html { redirect_to courses_path }
         format.json { render :show, status: :created, location: @location }
       else
         format.html { render :new }

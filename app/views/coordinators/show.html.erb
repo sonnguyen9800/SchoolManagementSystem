@@ -1,4 +1,18 @@
 <h1> <b>Coordinator</b></h1>
+<div class="nav-bar">
+  <% if logged_in? && (@coordinator == current_coordinator || current_coordinator.adminflag == true)%>
+  <strong>
+  <%= button_to "Edit the coordinator", edit_coordinator_path(@coordinator),
+  method: :get, class:"button_to" %></strong>
+  <% end %>
+
+  <% if logged_in? && (current_coordinator.adminflag == true)%>
+  <strong>
+  <%= button_to "Delete the coordinator", coordinator_path(@coordinator),
+  method: :delete, class:"button_to" %></strong>
+  <% end %>
+
+</div>
 <div class="col" style="background: #A9A9A9;"">
   <aside class="container">
     <section class="user_info">
@@ -6,12 +20,16 @@
 
         <h4><b>Name: </b> <%= @coordinator.name %></h4>
         <h4><b>Email: </b> <%= @coordinator.email %></h4>
-        <% if @coordinator.course != nil %>
-        <h4>Course Assigned To: <%= link_to @coordinator.course.name, @coordinator.course %></h4>
+        <% if @coordinator.courses.size >= 1%>
+        <h4>Course Assigned To:
+          <% for course in @coordinator.courses do%>
+          <%= link_to course.name, course %>
+          <% end %>
+        </h4>
         <% else %>
         <h4>No Course Assigned To</h4>
         <% end %>
-
     </section>
   </aside>
 </div>
+<%= render 'courses.html.erb' %>

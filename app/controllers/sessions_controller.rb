@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     coordinator = Coordinator.find_by(email: params[:session][:email].downcase)
     if coordinator && coordinator.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
-      flash[:success] = 'Login Successfully' # Not quite right!
+      flash[:success] = 'Login Successfully' 
       log_in coordinator
       params[:session][:remember_me] == '1' ? remember(coordinator) : forget(coordinator)
       redirect_back_or courses_path
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
+      flash[:danger] = 'You logged out'
       redirect_to root_path
   end
 end

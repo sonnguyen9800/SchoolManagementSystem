@@ -1,0 +1,27 @@
+<%= form_with(model: feedback, url: feedback_create_path,local: true) do |form| %>
+  <% if feedback.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(feedback.errors.count, "error") %> prohibited this feedback from being saved:</h2>
+      <ul>
+      <% feedback.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for @feedback, url: feedback_create_path do |f| %>
+
+        <%= f.label :subject %>
+        <%= f.text_field :subject, class: 'form-control' %>
+
+        <%= f.label :content %>
+        <%= f.text_field :content, class: 'form-control' %>
+        
+        <%= f.submit "Create new feedback", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+<% end %>

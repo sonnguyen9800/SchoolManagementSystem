@@ -2,6 +2,7 @@
 
 <h1>Coordinators</h1>
     <% @coordinators.each do |coordinator| %>
+    <% unless coordinator.adminflag == true %>
       <tr>
         <div class="col " style="background: #fff;"">
           <aside class="">
@@ -13,4 +14,5 @@
           </aside>
         </div>
       </tr>
+      <% end %>
     <% end %>

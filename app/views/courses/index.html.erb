@@ -1,13 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Courses</h1>
-
     <% @courses.each do |course| %>
       <tr>
         <div class="col " style="background: #fff;"">
           <aside class="">
             <section class="user_info">
-              <%= link_to gravatar_for(course.coordinator), course%>
+              <% if course.image.attached? %>
+                <%= link_to image_tag(course.image, style:'width:10%', class: "gravatar"), course %>
+              <% else %>
+                <%= link_to gravatar_for(course.coordinator), course%>
+              <% end %>
                 <h4><b>Name: </b> <%= course.name %>
                    <% if course.coordinator != nil %>
                    <b>Coordinator: </b>  <%= link_to course.coordinator.name, course.coordinator%>
@@ -16,7 +19,27 @@
                    <% end %>
                  </h4>
                 <h4><b>Prerequisite: </b> <%= course.prerequisite %></h4>
-                <h4><b>Like: </b> <%= course.like.to_i %> <b>Dislike: </b> <%= course.dislike.to_i %> </h4>
+
+                <h4><%= link_to course_upvotes_path(course), method: :post , class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Like (<%= course.upvotes.count %>)
+                <% end %>
+
+                <%= link_to course_downvotes_path(course), method: :post, class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon-thumbs-up"></span>
+                  Dislike (<%= course.downvotes.count %>)
+                <% end %>
+
+                <% if logged_in? && current_coordinator.adminflag == true %>
+                <%= link_to course_reset_vote_path(course), class: 'btn btn-default' do %>
+                  <span class="glyphicon glyphicon glyphicon-fire"></span>
+                  Reset Button
+                  <% end %>
+                <% end %>
+
+              </h4>
+
+
             </section>
           </aside>
         </div>

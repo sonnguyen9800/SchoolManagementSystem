@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  include SessionsHelper
+  include CoursesHelper
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :reset_vote]
+  before_action :logged_in_admin, only: [:detroy, :reset_vote]
+  before_action :current_coordinator_owned?, only: [ :edit, :update]
+  before_action :logged_in_coordinator, only: [:create]
   # GET /courses
   # GET /courses.json
   def index
@@ -29,7 +33,8 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
+        format.html { redirect_to @course }
+        flash[:success] = @course.name + " has been created"
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -43,7 +48,8 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course }
+        flash[:success] = "Course has been updated"
         format.json { render :show, status: :ok, location: @course }
       else
         format.html { render :edit }
@@ -57,7 +63,8 @@ class CoursesController < ApplicationController
   def destroy
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to courses_url, notice: 'Course was successfully destroyed.' }
+      flash[:success] = "You just remove a course"
+      format.html { redirect_to courses_url}
       format.json { head :no_content }
     end
   end
@@ -70,6 +77,12 @@ class CoursesController < ApplicationController
     dislike -= 1
   end
 
+  def reset_vote
+    @course.upvotes.destroy_all
+    @course.downvotes.destroy_all
+    redirect_to courses_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
@@ -78,6 +91,7 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :prerequisite, :description, :coordinator_id, { category_ids:[] }, {location_ids:[] })
+      params.require(:course).permit(:name, :prerequisite, :description, :coordinator_id,  :image, { category_ids:[] }, {location_ids:[] })
     end
+
 end
