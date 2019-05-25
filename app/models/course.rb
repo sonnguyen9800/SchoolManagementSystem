@@ -16,7 +16,4 @@ class Course < ApplicationRecord
     upvotes.count
   end
 
-  def name
-
-  end
 end
