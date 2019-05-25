@@ -3,6 +3,7 @@ require 'test_helper'
 class CoursesControllerTest < ActionDispatch::IntegrationTest
   setup do
     @course = courses(:one)
+    @coordinator = coordinators(:two)
   end
 
   test "should get index" do
@@ -11,13 +12,14 @@ class CoursesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_course_url
+    log_in_as(@coordinator)
+    get new_course_url(@coordinator)
     assert_response :success
   end
 
   test "should create course" do
     assert_difference('Course.count') do
-      post courses_url, params: { course: { name: @course.name, prerequisite: @course.prerequisite } }
+      post courses_url, params: { course: { name: @course.name, prerequisite: @course.prerequisite, description: @course.description,  } }
     end
 
     assert_redirected_to course_url(Course.last)

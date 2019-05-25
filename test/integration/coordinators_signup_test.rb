@@ -8,7 +8,7 @@ class CoordinatorsSignupTest < ActionDispatch::IntegrationTest
     get signup_path
     assert_no_difference 'Coordinator.count' do
       post coordinators_path, params: { coordinator: { name:  "TheNamOfTest",
-                                         email: "user.user@rmit.edu.au",
+                                         email: "user@gmail.com",
                                          password:              "abcasd12XX12!",
                                          password_confirmation: "abcasd12XX12!" } }
     end

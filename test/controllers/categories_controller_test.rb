@@ -16,7 +16,7 @@ class CategoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create category" do
-    assert_difference('Category.count') do
+    assert_no_difference('Category.count') do
       post categories_url, params: { category: { name: @category.name } }
     end
 

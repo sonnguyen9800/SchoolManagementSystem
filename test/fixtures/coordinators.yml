@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  email: MyString
+   name:  "TheNamOfTest"
+   email: "user.user@rmit.edu.au"
+   password_digest: "abcasd12XX12!"
+   adminflag: false
 
 two:
-  name: MyString
-  email: MyString
+  name:  "Example Coordinator"
+  email: "example.user@rmit.edu.au"
+  password_digest: "abcasd12XX12!"
+  adminflag: true

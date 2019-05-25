@@ -8,4 +8,38 @@ class CourseTest < ActiveSupport::TestCase
   test "Course should be valid" do
    assert @course.valid?
   end
+  
+  test "Check model valid" do
+   assert @course.valid?
+ end
+
+ test "name should be present" do
+    @course.name = "     "
+    assert_not @course.valid?
+  end
+
+  test "name should have minimum length" do
+    @course.name = "a" * 8
+    assert_not @course.valid?
+  end
+  
+  test "prerequisite should be present" do
+      @course.prerequisite = "     "
+      assert_not @course.valid?
+  end
+  
+  test "prerequisite should have minimum length" do
+      @course.prerequisite = "a" * 8
+      assert_not @course.valid?
+  end
+
+  test "description should be present (nonblank)" do
+   @course.description = "     "
+   assert_not @course.valid?
+ end
+
+ test "description should have a minimum length" do
+   @course.description = "a" * 28
+   assert_not @course.valid?
+ end
 end

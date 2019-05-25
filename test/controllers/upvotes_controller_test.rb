@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class UpvotesControllerTest < ActionDispatch::IntegrationTest
+   setup do
+     @course = courses(:one)
+   end
+  
   test "should get create" do
-    get upvotes_create_url
+    get upvotes_create_url(@course)
     assert_response :success
   end
 

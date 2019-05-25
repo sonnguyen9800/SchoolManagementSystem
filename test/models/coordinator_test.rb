@@ -33,4 +33,11 @@ class CoordinatorTest < ActiveSupport::TestCase
    @coordinator.password = @coordinator.password_confirmation = "a" * 5
    assert_not @coordinator.valid?
  end
+ 
+ test "email addresses should be unique" do
+    duplicate_user = @coordinator.dup
+    duplicate_user.email = @coordinator.email.upcase
+    @coordinator.save
+    assert_not duplicate_user.valid?
+  end
 end
