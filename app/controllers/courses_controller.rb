@@ -45,6 +45,7 @@ class CoursesController < ApplicationController
 
   # PATCH/PUT /courses/1
   # PATCH/PUT /courses/1.json
+  
   def update
     respond_to do |format|
       if @course.update(course_params)
