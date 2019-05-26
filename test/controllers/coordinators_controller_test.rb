@@ -30,17 +30,7 @@ class CoordinatorsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    log_in_as(@coordinator)
-    get edit_coordinator_url(@coordinator)
-    assert_response :success
-  end
 
-  test "should update coordinator" do
-    log_in_as(@coordinator)
-    patch coordinator_url(@coordinator), params: { coordinator: { email: @coordinator.email, name: @coordinator.name } }
-    assert_redirected_to coordinator_url(@coordinator)
-  end
 
   test "should destroy coordinator" do
     assert_difference('Coordinator.count', -1) do
