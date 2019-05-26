@@ -1,8 +1,12 @@
 require 'test_helper'
 
 class FeedbackControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @feedback = feedbacks(:one)
+  end
+  
   test "should get create" do
-    get feedback_create_url
+    patch feedback_create_url, params: {  feedback:  {subject: @feedback.subject, content: @feedback.content} }
     assert_response :success
   end
 

@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2019_05_25_074242) do
     t.datetime "updated_at", null: false
     t.integer "like"
     t.integer "dislike"
-    t.text "description"
+    t.string "description"
   end
 
   create_table "courses_categories", id: false, force: :cascade do |t|

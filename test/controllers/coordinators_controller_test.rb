@@ -11,16 +11,18 @@ class CoordinatorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get new_coordinator_url
+    get signup_path
     assert_response :success
   end
 
   test "should create coordinator" do
-    assert_difference('Coordinator.count') do
-      post coordinators_url, params: { coordinator: { email: @coordinator.email, name: @coordinator.name } }
+    get signup_path
+    assert_no_difference 'Coordinator.count' do
+      post coordinators_path, params: { coordinator: { name:  "TheNamOfTest",
+                                         email: "user.user@rmit.edu.au",
+                                         password:              "abcasd12XX12!",
+                                         password_confirmation: "abcasd12XX12!" } }
     end
-
-    assert_redirected_to coordinator_url(Coordinator.last)
   end
 
   test "should show coordinator" do
@@ -29,11 +31,13 @@ class CoordinatorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get edit" do
+    log_in_as(@coordinator)
     get edit_coordinator_url(@coordinator)
     assert_response :success
   end
 
   test "should update coordinator" do
+    log_in_as(@coordinator)
     patch coordinator_url(@coordinator), params: { coordinator: { email: @coordinator.email, name: @coordinator.name } }
     assert_redirected_to coordinator_url(@coordinator)
   end
