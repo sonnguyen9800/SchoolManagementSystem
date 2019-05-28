@@ -14,5 +14,4 @@ application up and running.
 <h3> Son Hoang Nguyen - 1 Week </h3>
 <h3> Anh Quoc Bui - 1 Week </h3>
 
-<h3> URL: </h3>
-<a href="rad-assignment1.herokuapp.com"> Link  </a>
+<a href="http://rad-assignment1.herokuapp.com/courses"> <h3> LINK </h3> </a>
