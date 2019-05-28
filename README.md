@@ -9,8 +9,8 @@ application up and running.
 <h1>Student: </h1>
 <h3> Son Nguyen Hoang - s3634703 </h3>
 <h3> Anh Quoc Bui - s3634132 </h3>
-<h3> The highest level attempted: <strong> HD </strong></h3>
-<h2> Timesheet for each member: </h2>
+<h1> The highest level attempted: <strong> HD </strong></h1>
+<h1> Timesheet for each member: </h1>
 <h3> Son Hoang Nguyen - 1 Week </h3>
 <h3> Anh Quoc Bui - 1 Week </h3>
 
