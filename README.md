@@ -3,22 +3,16 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+* Ruby version 2.6.1
+* Bundler Version 2.1.0
 
-* Ruby version
+<h1>Student: </h1>
+<h3> Son Nguyen Hoang - s3634703 </h3>
+<h3> Anh Quoc Bui - s3634132 </h3>
+<h3> The highest level attempted: <strong> HD </strong></h3>
+<h2> Timesheet for each member: </h2>
+<h3> Son Hoang Nguyen - 1 Week </h3>
+<h3> Anh Quoc Bui - 1 Week </h3>
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+<h3> URL: </h3>
+<a href="rad-assignment1.herokuapp.com"> Link  </a>
