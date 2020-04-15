@@ -22,12 +22,12 @@
 ![ruby-ass-2](https://user-images.githubusercontent.com/45099020/79333018-0535b480-7f48-11ea-8d12-18cb186162ab.png)
 
 ### Student
-<h3> Son Nguyen Hoang </h3>
-<h3> Anh Quoc Bui </h3>
-<h1> The highest level attempted: <strong> HD </strong></h1>
-<h1> Timesheet for each member: </h1>
-<h3> Son Hoang Nguyen - 1 Week </h3>
-<h3> Anh Quoc Bui - 1 Week </h3>
+- Son Nguyen Hoang
+- Anh Quoc Bui
+- The highest level attempted: <strong> HD </strong>
+- Timesheet for each member:
+  Son Hoang Nguyen
+  Anh Quoc Bui
 
 ## Link
 http://rad-assignment1.herokuapp.com/courses
@@ -38,8 +38,8 @@ http://rad-assignment1.herokuapp.com/courses
 For education and non-commercial purpose
 
 ## Acknowledgement
-*Anh Quoc Bui - my partner in this assignment
-* https://www.learnenough.com/ruby-on-rails-6th-edition
+- Anh Quoc Bui - my partner in this assignment
+- https://www.learnenough.com/ruby-on-rails-6th-edition
 When i did this assignment, the author of the above ebook let reader use for free but now he officially sell it. So you may not access it for free like i did one year ago
 
 
